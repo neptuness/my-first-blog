@@ -6,5 +6,36 @@
 <body>
 	<h1>Nepus' blog</h1>
 	<i>#DjangogirlsDresden</i>
+
+	<div>
+		<h3>My Published Posts</h3>
+		<!-- how to print all post as python-like to HTML with double {} -->
+		<!-- {{posts}}		 -->
+
+		<!-- Python-like loop-->
+		{% for post in posts %}
+		    <div style="border: 1px dashed; padding: 10px;">
+		        <h4><a href="">{{ post.title }}</a></h4>
+		        <p>{{ post.text|linebreaksbr }}</p>
+		        <p>published: {{ post.published_date }}</p>
+		    </div>
+		{% endfor %}
+	</div>
+
+	<div>
+		<h3>My All Posts</h3>
+		<!-- how to print all post as python-like to HTML with double {} -->
+		<!-- {{posts}}		 -->
+
+		<!-- Python-like loop-->
+		{% for post1 in posts_all %}
+		    <div style="border: 1px dotted; padding: 10px;">
+		        <h4><a href="">{{ post1.title }}</a></h4>
+		        <p>{{ post1.text|linebreaksbr }}</p>
+		        <p>published: {{ post1.published_date }}</p>
+		    </div>
+		{% endfor %}
+	</div>
+
 </body>
 </html>
