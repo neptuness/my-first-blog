@@ -1,0 +1,15 @@
+{% extends 'blog/base.html' %}
+
+{% block content %}
+	<div class="content container">
+		<h1>New post</h1>
+	    <form method="POST" class="post-form">
+	    	<!-- This is very important, since it makes your forms secure! If you forget about this bit, Django will complain when you try to save the form: -->
+	    	{% csrf_token %}
+
+	        {{ form.as_p }}
+	        <button type="submit" class="save btn btn-default">Save</button>
+	    </form>	
+	</div>
+
+{% endblock %}
