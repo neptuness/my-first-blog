@@ -1,41 +1,23 @@
-<!DOCTYPE html>
-<html>
-<head>
-	<title>NEPUS djangogirls DD</title>
-</head>
-<body>
-	<h1>Nepus' blog</h1>
-	<i>#DjangogirlsDresden</i>
+{% extends 'blog/base.html' %}
 
-	<div>
-		<h3>My Published Posts</h3>
-		<!-- how to print all post as python-like to HTML with double {} -->
-		<!-- {{posts}}		 -->
+{% block content %}
+	<div class="content container">
+		<h2>My Published Posts</h2>
 
-		<!-- Python-like loop-->
-		{% for post in posts %}
-		    <div style="border: 1px dashed; padding: 10px;">
-		        <h4><a href="">{{ post.title }}</a></h4>
-		        <p>{{ post.text|linebreaksbr }}</p>
-		        <p>published: {{ post.published_date }}</p>
-		    </div>
-		{% endfor %}
+		<div class="row mb-2">
+			{% for post in posts %}
+			<div class="card col-md-6">
+				<div class="card-body">
+					<h3><a href="{% url 'post_detail' pk=post.pk %}">{{ post.title }}</a></h3>
+					<div class="date"> 
+						{{ post.published_date }}
+					</div>
+					<p class="text mb-auto">
+						{{ post.text|linebreaksbr }}
+					</p>
+				</div>
+			</div>
+			{% endfor %}
+		</div>
 	</div>
-
-	<div>
-		<h3>My All Posts</h3>
-		<!-- how to print all post as python-like to HTML with double {} -->
-		<!-- {{posts}}		 -->
-
-		<!-- Python-like loop-->
-		{% for post1 in posts_all %}
-		    <div style="border: 1px dotted; padding: 10px;">
-		        <h4><a href="">{{ post1.title }}</a></h4>
-		        <p>{{ post1.text|linebreaksbr }}</p>
-		        <p>published: {{ post1.published_date }}</p>
-		    </div>
-		{% endfor %}
-	</div>
-
-</body>
-</html>
+{% endblock %}

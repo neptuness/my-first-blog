@@ -1,0 +1,27 @@
+{% load staticfiles %}
+<!DOCTYPE html>
+<html>
+<head>	
+	<title>NEPUS djangogirls DD</title>
+
+	<link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css">
+	<link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap-theme.min.css">
+	<link rel="stylesheet" href="{% static 'css/blog.css' %}">
+	<link href="//fonts.googleapis.com/css?family=Lobster&subset=latin,latin-ext" rel="stylesheet" type="text/css">
+
+</head>
+<body>
+	<div class="page-header">
+		<h1>Nepus' blog</h1>
+	</div>
+
+	{% block content %}
+	{% endblock %}
+	
+</body>
+<footer class="footer">
+	<div class="container">
+		<i>#DjangoGirls</i> <b>Dresden 2018</b>
+	</div>
+</footer>
+</html>
